@@ -4,6 +4,7 @@ import {StyleSheet, Text, View} from "react-native";
 import SearchIcon from "../icons/SearchIcon";
 import RandomLogo from "../icons/RandomLogo";
 import FilterIcon from "../icons/FilterIcon";
+import {getExpressTestInfo} from "../service-clients/firstRequest";
 
 
 /*
@@ -50,7 +51,7 @@ const InventoryTabs = (): JSX.Element => {
   >
       <Button
         mode="text"
-        onPress={() => {console.log('hello')}}
+        onPress={() => {console.log(getExpressTestInfo().then(data => console.log(data)))}}
       >
         Items (0)
       </Button>
