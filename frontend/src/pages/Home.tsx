@@ -1,12 +1,8 @@
-import {BottomNavigation, Button, Divider, Menu, SegmentedButtons} from "react-native-paper";
+import {BottomNavigation, RadioButton, SegmentedButtons} from "react-native-paper";
 import {JSX, useState} from "react";
 import {Platform, StyleSheet, Text, View} from "react-native";
-import SearchIcon from "../icons/SearchIcon";
-import RandomLogo from "../icons/RandomLogo";
-import FilterIcon from "../icons/FilterIcon";
-import {getExpressTestInfo} from "../service-clients/firstRequest";
 import { Appbar } from 'react-native-paper';
-import App from "../App";
+import ClothingTypeSelection from "../components/forms/AddClothing";
 
 
 /*
@@ -69,10 +65,27 @@ const InventoryTabs = (): JSX.Element => {
 }
 
 const SomeBody = () : JSX.Element => {
-  return <View/>;
+  return <View />;
 }
 
-const MusicRoute = () => <Text>home</Text>;
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row', // Horizontal layout
+  },
+  radioOption: {
+    flexDirection: 'row', // Horizontal layout for radio button and label
+    alignItems: 'center', // Center vertically
+    marginRight: 16, // Adjust as needed for spacing
+  },
+  selectedOption: {
+    backgroundColor: 'blue', // Change to your selected color
+  },
+  radioLabel: {
+    marginLeft: 8, // Adjust as needed for spacing between radio button and label
+  },
+});
+
 
 const AlbumsRoute = () => <Text>wardrobe</Text>;
 
@@ -93,7 +106,7 @@ const BottomMenu = () => {
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
-    home: MusicRoute,
+    home: ClothingTypeSelection,
     wardrobe: AlbumsRoute,
     recents: RecentsRoute,
     shop: NotificationsRoute,
@@ -119,7 +132,7 @@ const homepageStyle = StyleSheet.create({
   },
 });
 // TODO - figure out an appropriate way to lay things out
-const HomeScreen = ({navigation}): JSX.Element => {
+const HomeScreen = ({navigation: any}): JSX.Element => {
   return (<>
     <View
       style={homepageStyle.container}

@@ -8,6 +8,6 @@ export type RootStackParamList = {
 };
 
 // export type HomeScreenProps = NativeStackScreenProps<RootStackParamList, "Home">;
-export default function ProfileScreen ({navigation, route}): JSX.Element {
+export default function ProfileScreen ({navigation: any, route}): JSX.Element {
   return <Text>This is {route.params.name}'s profile</Text>;
 };
